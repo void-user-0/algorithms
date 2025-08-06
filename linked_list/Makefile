@@ -1,15 +1,16 @@
 CC=gcc
 OPTIMIZE_FLAGS=-O2 -march=native
-DEBUG_FLAGS=-ggdb3
+DEBUG_FLAGS=-g -Werror -Wpedantic
 
-all: linked_list
+all: ll.o
 
-linked_list.o: linked_list.c
+ll.o: linked_list.c
 	$(CC) -c $< $(DEBUG_FLAGS) $(OPTIMIZE_FLAGS) -o $@
-linked_list: linked_list.o
-	$(CC) $< main.c -o $@
+	
+ll_example: ll.o
+	$(CC) $< example_usage.c -o $@
 
 clean:
-	rm linked_list.o linked_list
+	rm -f ll.o ll_example
 
 .PHONY: clean
