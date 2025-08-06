@@ -1,12 +1,13 @@
 #include "linked_list.h"
 #include <stdio.h>
 
+// Usage lib LinkedList
+
 int main(int argc, char *argv[])
 {
   struct ll *ll = new_ll();
   struct ll_node *node = NULL;
-
-  // types
+  
   char *str_data = "hello world";
   char char_data = '*';
   char *names[] = {"Alice", "John", "Bob", NULL};
