@@ -65,7 +65,7 @@ void ll_insert_node_head(struct ll *ll, void *data)
   struct ll_node *node = new_ll_node(ll, data);
 
   if (!node) {
-    err("fail insert");
+    err("fail create node");
   }
 
   if (!ll->head) {
@@ -117,7 +117,7 @@ struct ll_node *ll_search_node(struct ll *ll, void *data) {
 void ll_delete_node(struct ll *ll, void *data)
 {
   if (!ll->head) {
-    err("dont delete node, linked list is empty!");
+    err("list empty!");
   }
 
   if (ll->head == ll->tail) {

@@ -45,7 +45,9 @@ int main(int argc, char *argv[])
   }
   node = ll_search_node(ll, &num_float);
   printf("%f\n", *(float *)node->data);
-  
+
+  ll_delete_node(ll, names);
+  printf("%d\n", ll->len);
 
   ll_destroy(ll);
    
