@@ -1,16 +1,18 @@
 #include <stdlib.h>
 #include <stdio.h>
+
 #include "linked_list.h"
 
 void err(const char *message) {
-  fprintf(stderr, "[ERROR]: %s", message);
+  fprintf(stderr, "[ERROR]: %s\n", message);
   exit(1);
 }
 
 void ll_destroy(struct ll *ll) {
   struct ll_node *node = ll->head;
-
-  ll_clean(ll);
+  if (ll->head) {
+    ll_clean(ll);
+  }
   free(ll);
 }
 
@@ -66,21 +68,29 @@ void ll_insert_node_head(struct ll *ll, void *data)
     err("fail insert");
   }
 
+  if (!ll->head) {
+    ll->head = ll->tail = node;
+    ll->len++;
+    return;   
+  }
+
   node->next = ll->head;
   ll->head = node;
+  ll->len++;
 }
 
-void ll_insert_node(struct ll *ll, void *data)
+void ll_insert_node_tail(struct ll *ll, void *data)
 {
   struct ll_node *node = new_ll_node(ll, data);
 
   if (!node) {
-    err("fail insert!");
+    err("fail create node!");
   }
 
   if (ll->head == NULL && ll->tail == NULL) {
     ll->head = ll->tail = node;
     ll->len++;
+    return;
   }
 
   ll->tail->next = node;
@@ -107,7 +117,7 @@ struct ll_node *ll_search_node(struct ll *ll, void *data) {
 void ll_delete_node(struct ll *ll, void *data)
 {
   if (!ll->head) {
-    err("dont delete node, linked list empty");
+    err("dont delete node, linked list is empty!");
   }
 
   if (ll->head == ll->tail) {
