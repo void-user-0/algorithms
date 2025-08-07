@@ -1,5 +1,5 @@
 CC=gcc
-DEBUG_FLAGS=-ggdb3 -Werror
+DEBUG_FLAGS=-g -Werror
 
 all: dll_example
 
