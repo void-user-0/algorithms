@@ -1,1 +1,1 @@
-my implementations of algorithms, mainly for personal use.
+my implementations of algorithms and data types, mainly for personal use.
