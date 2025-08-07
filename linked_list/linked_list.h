@@ -49,7 +49,7 @@ void ll_destroy(struct ll *ll);
 void ll_clean(struct ll *ll);
 
 struct ll *new_ll();
-struct ll_node *new_ll_node(struct ll *ll, void *data);
+struct ll_node *new_ll_node(void *data);
 struct ll_node *ll_search_node(struct ll *ll, void *data);
 
 #endif

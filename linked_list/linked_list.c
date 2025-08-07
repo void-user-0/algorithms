@@ -46,11 +46,11 @@ struct ll *new_ll()
   return ll;
 }
 
-struct ll_node *new_ll_node(struct ll *ll, void *data)
+struct ll_node *new_ll_node(void *data)
 {
   struct ll_node *ll_node = (struct ll_node *)malloc(sizeof(struct ll_node));
 
-  if (!ll) {
+  if (!ll_node) {
     err("fail create node!");
   }
 
@@ -62,7 +62,7 @@ struct ll_node *new_ll_node(struct ll *ll, void *data)
 
 void ll_insert_node_head(struct ll *ll, void *data)
 {
-  struct ll_node *node = new_ll_node(ll, data);
+  struct ll_node *node = new_ll_node(data);
 
   if (!node) {
     err("fail create node");
@@ -81,7 +81,7 @@ void ll_insert_node_head(struct ll *ll, void *data)
 
 void ll_insert_node_tail(struct ll *ll, void *data)
 {
-  struct ll_node *node = new_ll_node(ll, data);
+  struct ll_node *node = new_ll_node(data);
 
   if (!node) {
     err("fail create node!");
