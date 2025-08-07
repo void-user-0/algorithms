@@ -25,6 +25,8 @@ int main(int argc, char *argv[])
   printf("%s\n", (char *)dll_node->data);
   dll_node = doubly_linked_list_search(dll, (int *)120);
   printf("%d\n", dll_node->data);
+
+  doubly_linked_list_destroy(dll);
   
   return 0;
 }
