@@ -2,7 +2,7 @@ CC=gcc
 DEBUG_FLAGS=-g -Werror
 CFLAGS=-O2 -march=native
 
-all: dll_example
+all: dll.o
 
 dll.o: doubly_linked_list.c
 	$(CC) -c $< $(DEBUG_FLAGS) -o $@
